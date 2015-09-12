@@ -11,24 +11,25 @@ class PoiController extends BaseController
 {
     public $modelClass = 'app\models\Poi';
 
-    public static function resizeImage($imgString, $width, $height) {
-      $img = \imagecreatefromstring($imgString);
+    /**
+     * Resize an image from a base64 string
+     * @param string $imgString
+     * @param int $width
+     * @param int $height
+     * @return string
+     */
+    public static function resizeImage($imgString, $width, $height) 
+    {
+        $img = imagecreatefromstring(base64_decode($imgString));
 
-    	// Ensure image is in jpg format
-    	if ($img["type"] != "image/jpeg" && $img["type"] != "image/jpg") return false;
+    	$image_p = imagecreatetruecolor($width, $height);
+        imagecopyresampled($image_p, $img, 0, 0, 0, 0, $width, $height, imagesx($img), imagesy($img));
+    	ob_start();
+    	imagejpeg($image_p, NULL, 100);
+    	imagedestroy($image_p);
+    	$thumbnail = ob_get_clean();
 
-    	$tmp = \imagecreatetruecolor($width, $height);
-
-    	$initSize = \getimagesize($img["tmp_name"]);
-
-    	\imagecopyresampled($tmp, \imagecreatefromjpeg($img["tmp_name"]), 0, 0, 0, 0, $width, $height, $initSize[0], $initSize[1]);
-
-    	\ob_start();
-    	\imagejpeg($tmp, NULL, 100);
-    	\imagedestroy($tmp);
-    	$thumbnail = \ob_get_clean();
-
-    	return \base64_encode($thumbnail);
+    	return base64_encode($thumbnail);
     }
 
 }
