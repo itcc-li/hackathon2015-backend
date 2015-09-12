@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\controllers\PoiController;
 
 /**
  * This is the model class for table "poi".
@@ -19,6 +20,7 @@ use Yii;
  *
  * @property Comment[] $comments
  * @property User $user
+ * @property thumbnail
  */
 class Poi extends \app\models\BaseAR
 {
@@ -40,7 +42,8 @@ class Poi extends \app\models\BaseAR
             [['description', 'image'], 'string'],
             [['user_id'], 'integer'],
             [['created', 'modified'], 'safe'],
-            [['name'], 'string', 'max' => 200]
+            [['name'], 'string', 'max' => 200],p
+            [['thumbnail'], 'string']
         ];
     }
 
@@ -59,6 +62,7 @@ class Poi extends \app\models\BaseAR
             'user_id' => 'User ID',
             'created' => 'Created',
             'modified' => 'Modified',
+            'thumbnail' => 'Thumbnail',
         ];
     }
 
@@ -77,16 +81,16 @@ class Poi extends \app\models\BaseAR
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
-    
-    
-    
+
+
+
     /**
      * Search Point of Interest by Distance (in kilometers)
      * @param float $long
      * @param float $lat
      * @param int $distance
      * @param int $limit
-     * 
+     *
      * @return
      */
     public static function searchByDistance($long, $lat, $distance=20, $limit=20)
@@ -105,12 +109,23 @@ class Poi extends \app\models\BaseAR
               HAVING distance < ".$distance."
               ORDER BY distance
               LIMIT 0 , ".$limit.";";
-        
+
         $command = Yii::$app->db->createCommand($sql);
         return $command->queryAll();
     }
-    
 
-    
-    
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert))
+        {
+            if (!isset($this->image)) return;
+            
+            $this->thumbnail = PoiController::resizeImage($this->image, 108, 108);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
