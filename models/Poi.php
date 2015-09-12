@@ -39,11 +39,10 @@ class Poi extends \app\models\BaseAR
     {
         return [
             [['longitude', 'latitude'], 'number'],
-            [['description', 'image'], 'string'],
+            [['description', 'image', 'thumbnail'], 'string'],
             [['user_id'], 'integer'],
             [['created', 'modified'], 'safe'],
-            [['name'], 'string', 'max' => 200],p
-            [['thumbnail'], 'string']
+            [['name'], 'string', 'max' => 200],
         ];
     }
 
@@ -119,7 +118,7 @@ class Poi extends \app\models\BaseAR
         if (parent::beforeSave($insert))
         {
             if (!isset($this->image)) return;
-            
+
             $this->thumbnail = PoiController::resizeImage($this->image, 108, 108);
             return true;
         }
