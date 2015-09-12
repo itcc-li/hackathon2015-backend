@@ -108,6 +108,7 @@ class Poi extends \app\models\BaseAR
         
         $command = Yii::$app->db->createCommand($sql);
         return $command->queryAll();
+    
     }
     
 
