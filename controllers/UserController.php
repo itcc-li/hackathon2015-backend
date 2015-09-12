@@ -15,11 +15,11 @@ class UserController extends BaseController
     {
         $behaviors = parent::behaviors();
         
-        $behaviors['authenticator'] = [
-            'except' => ['create'],
-            'class' => HttpBasicAuth::className(),
-            'auth' => [$this, 'auth'],
-        ];
+//        $behaviors['authenticator'] = [
+//            'except' => ['create'],
+//            'class' => HttpBasicAuth::className(),
+//            'auth' => [$this, 'auth'],
+//        ];
         return $behaviors;
     }
     

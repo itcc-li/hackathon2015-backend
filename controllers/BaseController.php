@@ -20,10 +20,10 @@ class BaseController extends ActiveController
     {
         $behaviors = parent::behaviors();
         
-        $behaviors['authenticator'] = [
-            'class' => HttpBasicAuth::className(),
-            'auth' => [$this, 'auth'],
-        ];
+//        $behaviors['authenticator'] = [
+//            'class' => HttpBasicAuth::className(),
+//            'auth' => [$this, 'auth'],
+//        ];
         return $behaviors;
     }
     
