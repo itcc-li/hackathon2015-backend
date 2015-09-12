@@ -1,7 +1,9 @@
 # no log files as well
 *.log
 
-/
+# index.php from YII
+index.php
+index-test.php
 
 # phpstorm project files
 .idea
