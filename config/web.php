@@ -6,6 +6,7 @@ $config = [
     'timezone' => 'UTC',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'defaultRoute' => 'users/index',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
