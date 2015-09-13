@@ -20,7 +20,7 @@ $(function() {
 		});
 	}
 	
-	$(window).hashchange( function() {
+	$(window).on('hashchange', function() {
 		checkHash();
 	});
 });
