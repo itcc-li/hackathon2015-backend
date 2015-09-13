@@ -5,12 +5,13 @@ $(function() {
 			
 			$.get('http://52.24.125.211/api/index.php/pois', function(data) {
 			data.map(function(location) {
+				var pos = { lat: location.latitude, lng: location.longitude };
 				new google.maps.Marker({
-					position: { lat: location.latitude, lng: location.longitude },
+					position: pos,
 					map: map,
 					title: 'Gaflei'
 				});
-				console.log(location);
+				console.log(pos);
 			});
 		});
 	});
