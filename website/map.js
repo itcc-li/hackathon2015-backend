@@ -71,10 +71,9 @@ function initialize() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
-        });
+			animateMap();
+        }, animateMap);
     }
-
-	window.requestAnimationFrame(animateMap);
 
 }
 
