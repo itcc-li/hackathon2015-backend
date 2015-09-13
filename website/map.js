@@ -41,8 +41,22 @@ function initialize() {
 	  }
 	];
 
+	var coordinates = {
+		latitude: 47.139495,
+		longitude: 9.524542
+	};
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			coordinates = {
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude
+			};
+        });
+	}
+
     var mapOptions = {
-        center: new google.maps.LatLng(47.139495, 9.524542),
+        center: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: styles,
