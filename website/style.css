@@ -30,6 +30,9 @@ header { padding-top: 50px; }
 
 #get-it-wrapper { width: 100%; position: absolute; bottom: 100px; }
 
+#apple-icon { float: right; margin-right: 24px; }
+#android-icon { float: left; }
+
 footer { font-size: 10px; position: absolute; bottom: 0; width: 100%; background: #FFF; height: 50px; line-height: 50px; font-weight: 800; }
 footer div { letter-spacing: 2px; }
 #footer-text, #footer-links, #footer-links > div { display: inline-block; }
@@ -40,3 +43,9 @@ footer div { letter-spacing: 2px; }
 
 a[href^="http://maps.google.com/maps"] { display: none !important }
 a[href^="https://maps.google.com/maps"] { display: none !important }
+
+@media all and (max-width: 380px) {
+	#get-it-container { width: 250px; height: 100px; }
+	#get-it-container span { display: block;}
+	#footer-links div { margin-left: 20px; }
+}
