@@ -9,19 +9,6 @@ function initialize() {
     }
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    /* Google Map Static Marker */
-    var schlossVaduz = new google.maps.Marker({
-        position: {lat: 47.139495, lng: 9.524542},
-        map: map,
-        title: 'Schloss Vaduz'
-    });
-
-    var gaflei = new google.maps.Marker({
-        position: {lat: 47.14201, lng: 9.54455},
-        map: map,
-        title: 'Gaflei'
-    });
-
     $('#click_Vaduz').click(function() {
         //map.setZoom(15);
         map.panTo({lat: 47.139495, lng: 9.524542});
