@@ -33,8 +33,4 @@ class PoiController extends BaseController
 
     	return base64_encode($thumbnail);
     }
-	
-	public function actionTest() {
-		return "hello";
-	}
 }

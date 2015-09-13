@@ -39,7 +39,7 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => ['poi', 'user', 'comment']],
+                ['class' => 'yii\rest\UrlRule', 'controller' => ['poi', 'user', 'comment', 'site']],
             ]
         ],
         'log' => [
