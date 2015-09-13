@@ -47,5 +47,5 @@ a[href^="https://maps.google.com/maps"] { display: none !important }
 @media all and (max-width: 380px) {
 	#get-it-container { width: 250px; height: 100px; }
 	#get-it-container span { display: block;}
-	#footer-links div { margin-left: 20px; }
+	#footer-links div { margin-left: 20px; float: left; }
 }
