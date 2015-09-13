@@ -1,5 +1,8 @@
 html, body { padding: 0; margin: 0; width: 100%; height: 100%; font-family: 'Open Sans', sans-serif; }
 
+::selection { background: #7BB51C; }
+::-moz-selection { background: #7BB51C; }
+
 #map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; }
 
 header { padding-top: 50px; }
