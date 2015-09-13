@@ -2,12 +2,15 @@ var map;
 var bounds = new google.maps.LatLngBounds();
 
 $(function() {
-        google.maps.event.addDomListener(window, 'load', function() {
-            initialize();
+    google.maps.event.addDomListener(window, 'load', function() {
+        initialize();
 
-            $.get('http://52.24.125.211/api/index.php/pois', function(data) {
+        $.get('http://52.24.125.211/api/index.php/pois', function(data) {
             data.map(function(location) {
-                var pos = { lat: Number(location.latitude), lng: Number(location.longitude) };
+                var pos = {
+                    lat: Number(location.latitude),
+                    lng: Number(location.longitude)
+                };
                 new google.maps.Marker({
                     position: pos,
                     map: map,
@@ -23,27 +26,27 @@ $(function() {
 function initialize() {
     var mapCanvas = document.getElementById('map');
 
-    var styles = [
-      {
-        stylers: [
-          { hue: "#00ffe6" },
-          { saturation: -20 }
-        ]
-      }, {
+    var styles = [{
+        stylers: [{
+            hue: "#00ffe6"
+        }, {
+            saturation: -20
+        }]
+    }, {
         featureType: "road",
         elementType: "geometry",
-        stylers: [
-          { lightness: 100 },
-          { visibility: "simplified" }
-        ]
-      }, {
-        featureType: "road",
+        stylers: [{
+            lightness: 100
+        }, {
+            visibility: "simplified"
+        }]
+    }, {
+        featureType: "all",
         elementType: "labels",
-        stylers: [
-          { visibility: "off" }
-        ]
-      }
-    ];
+        stylers: [{
+            visibility: "off"
+        }]
+    }];
 
     // Default coordinates, if geolocation doesn't works
     var coordinates = {
@@ -59,13 +62,14 @@ function initialize() {
         disableDefaultUI: true,
         draggable: false,
         scrollwheel: false,
-        disableDoubleClickZoom: true
+        disableDoubleClickZoom: true,
+        backgroundColor: 'none'
     }
 
     map = new google.maps.Map(mapCanvas, mapOptions);
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
         });
     }
