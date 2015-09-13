@@ -87,7 +87,9 @@ class SiteController extends Controller
     }
 	
 	public function actionTest() {
-		return "hello";
+		return array(
+			"a" => "herrlou",
+		);
 	}
 
     public function actionAbout()
