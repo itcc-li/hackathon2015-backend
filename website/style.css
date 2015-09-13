@@ -3,6 +3,8 @@ html, body { padding: 0; margin: 0; width: 100%; height: 100%; font-family: 'Ope
 ::selection { background: #7BB51C; color: #FFF; }
 ::-moz-selection { background: #7BB51C; color: #FFF; }
 
+h1 { color: #7BB51C; font-weight: 200; font-size: 48px; line-height: 80px; }
+
 #map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; }
 
 header { padding-top: 50px; }
@@ -18,9 +20,15 @@ header { padding-top: 50px; }
 .gm-style { opacity: 0.5; }
 .gm-style-cc { display:none; }
 
-#get-it-wrapper { width: 100%; position: absolute; bottom: 100px; }
+#page-content { display: none; position: fixed; left: 0; top: 0; height: 100%; width: 100%; background: red; z-index: 1; }
 
-#page-content { display: none; }
+.table { display: table; }
+.table-cell { display: table-cell; text-align: center; vertical-align: middle; }
+
+#page-content-box { line-height: 28px; color: #666; font-size: 12px; padding: 64px; position: relative; display: inline-block; max-width: 100%; height: 480px; width: 420px; background: rgba(255, 255, 255, .7); }
+#close-page-content-btn { text-decoration: none; color: #fff; height: 48px; line-height: 48px; width: 48px; text-align: center; background: #7BB51C; }
+
+#get-it-wrapper { width: 100%; position: absolute; bottom: 100px; }
 
 footer { font-size: 10px; position: absolute; bottom: 0; width: 100%; background: #FFF; height: 50px; line-height: 50px; font-weight: 800; }
 footer div { letter-spacing: 2px; }
