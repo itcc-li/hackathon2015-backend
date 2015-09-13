@@ -54,6 +54,7 @@ class User extends \app\models\BaseAR implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
+            [['username', 'email_address'], 'required'],
             [['thumbnail'], 'string'],
             [['created', 'modified'], 'safe'],
             [['username', 'first_name', 'last_name'], 'string', 'max' => 200],

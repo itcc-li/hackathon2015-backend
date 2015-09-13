@@ -56,6 +56,7 @@ class Comment extends \app\models\BaseAR
     public function rules()
     {
         return [
+            [['user_id', 'poi_id', 'comment'], 'required'],
             [['user_id', 'poi_id', 'rating'], 'integer'],
             [['comment'], 'string'],
             [['created', 'modified'], 'safe']

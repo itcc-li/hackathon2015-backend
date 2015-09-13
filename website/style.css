@@ -13,3 +13,5 @@ footer div { letter-spacing: 2px; }
 #footer-links a { color: #7BB51C; cursor: pointer; }
 #footer-links > div { margin-left: 55px; }
 #footer-text { margin-left: 50px; }
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}

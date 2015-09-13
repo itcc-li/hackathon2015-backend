@@ -67,6 +67,7 @@ class Poi extends \app\models\BaseAR
     public function rules()
     {
         return [
+            [['name', 'longitude', 'latitude', 'user_id'], 'required'],
             [['longitude', 'latitude'], 'number'],
             [['description', 'image', 'thumbnail'], 'string'],
             [['user_id'], 'integer'],
