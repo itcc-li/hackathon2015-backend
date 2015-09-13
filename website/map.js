@@ -1,15 +1,20 @@
+var map;
 function initialize() {
 
-    /* Google Map*/
-    var mapCanvas = document.getElementById('map');
+	var mapCanvas = document.getElementById('map');
     var mapOptions = {
         center: new google.maps.LatLng(47.139495, 9.524542),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+	
+	map = new google.maps.Map(mapCanvas, mapOptions);
 
-    $('#click_Vaduz').click(function() {
+    /* Google Map*/
+    
+
+
+    /* $('#click_Vaduz').click(function() {
         //map.setZoom(15);
         map.panTo({lat: 47.139495, lng: 9.524542});
     });
@@ -17,7 +22,7 @@ function initialize() {
     $('#click_Gaflei').click(function() {
         //map.setZoom(15);
         map.panTo({lat: 47.14201, lng: 9.54455});
-    });
+    }); */
 
     /* Tab click functions */
     $('#mp_ui_LeftCLickerTab').click(function() {
