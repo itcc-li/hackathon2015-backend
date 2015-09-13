@@ -3,3 +3,5 @@ html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
 #map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 
 #get-it-container { width: 220px; height: 60px; border: 2px solid #157293; background: #fff; }
+
+.gm-style-cc { display:none; }
