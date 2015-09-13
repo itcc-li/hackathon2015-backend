@@ -64,7 +64,7 @@ class SiteController extends Controller
         return $this->render('login', [
             'model' => $model,
         ]);
-    }
+    }-
 
     public function actionLogout()
     {
@@ -86,8 +86,7 @@ class SiteController extends Controller
         ]);
     }
 	
-	public static function actionTest()
-	{
+	public function actionTest() {
 		return "hello";
 	}
 
