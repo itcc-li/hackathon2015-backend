@@ -2,7 +2,7 @@ var map;
 $(function() {
 		google.maps.event.addDomListener(window, 'load', function() {
 			initialize();
-			
+
 			$.get('http://52.24.125.211/api/index.php/pois', function(data) {
 			data.map(function(location) {
 				var pos = { lat: Number(location.latitude), lng: Number(location.longitude) };
@@ -18,7 +18,7 @@ $(function() {
 
 function initialize() {
 	var mapCanvas = document.getElementById('map');
-	
+
 	var styles = [
 	  {
 		stylers: [
@@ -40,14 +40,15 @@ function initialize() {
 		]
 	  }
 	];
-	
+
     var mapOptions = {
         center: new google.maps.LatLng(47.139495, 9.524542),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-	styles: styles,
-	disableDefaultUI: true
+		styles: styles,
+		disableDefaultUI: true,
+		draggable: false
     }
-	
+
     map = new google.maps.Map(mapCanvas, mapOptions);
 }
