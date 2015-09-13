@@ -5,7 +5,7 @@ $(function() {
     google.maps.event.addDomListener(window, 'load', function() {
         initialize();
 
-        $.get('hhttp://52.24.125.211/api/index.php/pois?fields=longitude,latitude', function(data) {
+        $.get('http://52.24.125.211/api/index.php/pois?fields=longitude,latitude', function(data) {
             data.map(function(location) {
                 var pos = {
                     lat: Number(location.latitude),
