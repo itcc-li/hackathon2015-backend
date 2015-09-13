@@ -9,6 +9,7 @@ $(function() {
 				new google.maps.Marker({
 					position: pos,
 					map: map,
+					icon: 'marker.png'
 					title: location.name
 				});
 			});
