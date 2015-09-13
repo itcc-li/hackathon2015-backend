@@ -17,6 +17,8 @@ header { padding-top: 50px; }
 
 #get-it-wrapper { width: 100%; position: absolute; bottom: 100px; }
 
+#page-content { display: none; }
+
 footer { font-size: 10px; position: absolute; bottom: 0; width: 100%; background: #FFF; height: 50px; line-height: 50px; font-weight: 800; }
 footer div { letter-spacing: 2px; }
 #footer-text, #footer-links, #footer-links > div { display: inline-block; }
