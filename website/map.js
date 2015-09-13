@@ -1,6 +1,23 @@
 var map;
-function initialize() {
+$(function() {
+		google.maps.event.addDomListener(window, 'load', function() {
+			initialize();
+			
+			$.get('http://52.24.125.211/api/index.php/pois', function(data) {
+			data.map(function(location) {
+				var pos = { lat: location.latitude, lng: location.longitude };
+				new google.maps.Marker({
+					position: pos,
+					map: map,
+					title: 'Gaflei'
+				});
+				console.log(pos);
+			});
+		});
+	});
+});
 
+function initialize() {
 	var mapCanvas = document.getElementById('map');
     var mapOptions = {
         center: new google.maps.LatLng(47.139495, 9.524542),
@@ -9,20 +26,6 @@ function initialize() {
     }
 	
 	map = new google.maps.Map(mapCanvas, mapOptions);
-
-    /* Google Map*/
-    
-
-
-    /* $('#click_Vaduz').click(function() {
-        //map.setZoom(15);
-        map.panTo({lat: 47.139495, lng: 9.524542});
-    });
-
-    $('#click_Gaflei').click(function() {
-        //map.setZoom(15);
-        map.panTo({lat: 47.14201, lng: 9.54455});
-    }); */
 
     /* Tab click functions */
     $('#mp_ui_LeftCLickerTab').click(function() {
@@ -41,4 +44,3 @@ function initialize() {
         $('#mp_ui_RightCLickerTab').css('border-bottom' , '3px solid #507512');
     });
 }
-google.maps.event.addDomListener(window, 'load', initialize);
