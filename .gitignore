@@ -4,6 +4,8 @@
 index.php
 index-test.php
 
+/runtime/
+
 # phpstorm project files
 .idea
 
