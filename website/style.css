@@ -1,4 +1,4 @@
-html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
+html, body { padding: 0; margin: 0; width: 100%; height: 100%; font-family: 'Open Sans', sans-serif; }
 
 #map { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; }
 
@@ -8,14 +8,13 @@ html, body { padding: 0; margin: 0; width: 100%; height: 100%; }
 
 .gm-style-cc { display:none; }
 
-#logo { width: 108px; height: 108px; }
-
-footer { font-size: 12px; position: absolute; bottom: 0; width: 100%; background: #FFF; height: 50px; line-height: 50px; font-family: 'Open Sans', sans-serif; font-weight: 800; }
+footer { font-size: 10px; position: absolute; bottom: 0; width: 100%; background: #FFF; height: 50px; line-height: 50px; font-weight: 800; }
 footer div { letter-spacing: 2px; }
 #footer-text, #footer-links, #footer-links > div { display: inline-block; }
 #footer-links { float: right; margin-right: 50px; }
-#footer-links a { color: #7BB51C; cursor: pointer; }
+#footer-links a { color: #7BB51C; cursor: pointer; text-decoration: none; }
 #footer-links div { margin-left: 55px; }
 #footer-text { margin-left: 50px; }
-a[href^="http://maps.google.com/maps"] { display:none !important }
-a[href^="https://maps.google.com/maps"] { display:none !important }
+
+a[href^="http://maps.google.com/maps"] { display: none !important }
+a[href^="https://maps.google.com/maps"] { display: none !important }
