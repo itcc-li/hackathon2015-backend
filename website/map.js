@@ -9,9 +9,8 @@ $(function() {
 				new google.maps.Marker({
 					position: pos,
 					map: map,
-					title: 'Gaflei'
+					title: location.name
 				});
-				console.log(location);
 			});
 		});
 	});
