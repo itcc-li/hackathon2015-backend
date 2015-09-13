@@ -151,11 +151,13 @@ class Poi extends \app\models\BaseAR
 
     public function beforeSave($insert)
     {
-        if (parent::beforeSave($insert))
+        
+        if (parent::beforeSave($insert) )
         {
-            if (!isset($this->image)) return;
-
-            $this->thumbnail = PoiController::resizeImage($this->image, 108, 108);
+            if(isset($this->image))
+            {
+                $this->thumbnail = PoiController::resizeImage($this->image, 108, 108);
+            }
             return true;
         }
         else
