@@ -45,8 +45,9 @@ function initialize() {
         center: new google.maps.LatLng(47.139495, 9.524542),
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-		styles: styles
+	styles: styles,
+	disableDefaultUI: true
     }
 	
-	map = new google.maps.Map(mapCanvas, mapOptions);
+    map = new google.maps.Map(mapCanvas, mapOptions);
 }
