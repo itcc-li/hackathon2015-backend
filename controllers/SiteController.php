@@ -85,6 +85,11 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+	
+	public static function actionTest()
+	{
+		return "hello";
+	}
 
     public function actionAbout()
     {

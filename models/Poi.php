@@ -144,7 +144,7 @@ class Poi extends \app\models\BaseAR
               HAVING distance < ".$distance."
               ORDER BY distance
               LIMIT 0 , ".$limit.";";
-
+		
         $command = Yii::$app->db->createCommand($sql);
         return $command->queryAll();
     
