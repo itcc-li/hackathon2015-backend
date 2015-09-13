@@ -2,7 +2,7 @@ $(function() {
 	var hash = location.hash;
 	if (hash === '') return;
 	hash = hash.substr(1);
-	$.post(hash + '.html', function(data) {
+	$.post('content/' + hash + '.html', function(data) {
 		showContent(data);
 	});
 	function showContent(html) {
