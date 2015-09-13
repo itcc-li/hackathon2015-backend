@@ -5,7 +5,7 @@ $(function() {
     google.maps.event.addDomListener(window, 'load', function() {
         initialize();
 
-        $.get('http://52.24.125.211/api/index.php/pois', function(data) {
+        $.get('http://52.24.125.211/api/index.php/pois?fields=longitude,latitude', function(data) {
             data.map(function(location) {
                 var pos = {
                     lat: Number(location.latitude),
@@ -14,8 +14,7 @@ $(function() {
                 new google.maps.Marker({
                     position: pos,
                     map: map,
-                    icon: 'images/marker.png',
-                    title: location.name
+                    icon: 'images/marker.png'
                 });
                 bounds.extend(new google.maps.LatLng(location.latitude, location.longitude));
             });
