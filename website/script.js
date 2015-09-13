@@ -5,7 +5,11 @@ $(function() {
 	$.post('content/' + hash + '.html', function(data) {
 		showContent(data);
 	});
+	$('#close-page-content-btn').click(function() {
+		$('#page-content').fadeOut();
+	});
 	function showContent(html) {
-		console.log(html);
+		$('#content').html(html);
+		$('#page-content').fadeIn();
 	}
 });
