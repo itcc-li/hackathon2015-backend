@@ -49,7 +49,7 @@ function initialize() {
 
     var mapOptions = {
         center: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
-        zoom: 15,
+        zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: styles,
 		disableDefaultUI: true,
@@ -62,7 +62,6 @@ function initialize() {
 
 	if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(function (position) {
-			console.log('Test');
 			map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
         });
 	}
