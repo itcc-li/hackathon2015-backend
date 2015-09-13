@@ -19,14 +19,6 @@ $(function() {
 
 function initialize() {
 	var mapCanvas = document.getElementById('map');
-    var mapOptions = {
-        center: new google.maps.LatLng(47.139495, 9.524542),
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-	
-	map = new google.maps.Map(mapCanvas, mapOptions);
-
 	
 	var styles = [
 	  {
@@ -34,14 +26,14 @@ function initialize() {
 		  { hue: "#00ffe6" },
 		  { saturation: -20 }
 		]
-	  },{
+	  }, {
 		featureType: "road",
 		elementType: "geometry",
 		stylers: [
 		  { lightness: 100 },
 		  { visibility: "simplified" }
 		]
-	  },{
+	  }, {
 		featureType: "road",
 		elementType: "labels",
 		stylers: [
@@ -49,6 +41,13 @@ function initialize() {
 		]
 	  }
 	];
-
-	map.setOptions({ styles: styles });
+	
+    var mapOptions = {
+        center: new google.maps.LatLng(47.139495, 9.524542),
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+		styles: styles
+    }
+	
+	map = new google.maps.Map(mapCanvas, mapOptions);
 }
