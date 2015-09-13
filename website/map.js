@@ -5,7 +5,7 @@ $(function() {
 			
 			$.get('http://52.24.125.211/api/index.php/pois', function(data) {
 			data.map(function(location) {
-				var pos = { lat: location.latitude, lng: location.longitude };
+				var pos = { lat: Number(location.latitude), lng: Number(location.longitude) };
 				new google.maps.Marker({
 					position: pos,
 					map: map,
