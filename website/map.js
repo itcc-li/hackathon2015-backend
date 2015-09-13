@@ -41,19 +41,11 @@ function initialize() {
 	  }
 	];
 
+	// Default coordinates, if geolocation doesn't works
 	var coordinates = {
 		latitude: 47.139495,
 		longitude: 9.524542
 	};
-
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function (position) {
-			coordinates = {
-				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
-			};
-        });
-	}
 
     var mapOptions = {
         center: new google.maps.LatLng(coordinates.latitude, coordinates.longitude),
@@ -67,4 +59,10 @@ function initialize() {
     }
 
     map = new google.maps.Map(mapCanvas, mapOptions);
+
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function (position) {
+			map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+        });
+	}
 }
