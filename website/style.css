@@ -26,7 +26,7 @@ header { padding-top: 50px; }
 .table-cell { display: table-cell; text-align: center; vertical-align: middle; }
 
 #page-content-box { line-height: 28px; color: #666; font-size: 12px; padding: 64px; position: relative; display: inline-block; max-width: 100%; height: 480px; width: 420px; background: rgba(255, 255, 255, .7); }
-#close-page-content-btn { text-decoration: none; color: #fff; height: 48px; line-height: 48px; width: 48px; text-align: center; background: #7BB51C; }
+#close-page-content-btn { display: block; position: absolute; right: 0; top: 0; text-decoration: none; color: #fff; height: 48px; line-height: 48px; width: 48px; text-align: center; background: #7BB51C; }
 
 #get-it-wrapper { width: 100%; position: absolute; bottom: 100px; }
 
