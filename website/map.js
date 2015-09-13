@@ -74,8 +74,13 @@ function initialize() {
         });
     }
 
-    window.setInterval(function() {
-        var currentCoordinates = map.getCenter();
-        map.panTo(new google.maps.LatLng((currentCoordinates.G - 0.00001), currentCoordinates.K));
-    }, 10);
+	window.requestAnimationFrame(animateMap);
+
+}
+
+function animateMap() {
+	var currentCoordinates = map.getCenter();
+	map.panTo(new google.maps.LatLng((currentCoordinates.G - 0.00001), currentCoordinates.K));
+
+	window.requestAnimationFrame(animateMap);
 }
