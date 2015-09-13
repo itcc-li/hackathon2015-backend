@@ -20,7 +20,7 @@ class PoiController extends BaseController
      */
     public static function resizeImage($imgString, $width, $height) 
     {
-        $img = imagecreatefromstring(base64_decode($imgString));
+        $img = imagecreatefromstring(base64_decode(trim($imgString)));
 
     	$image_p = imagecreatetruecolor($width, $height);
         imagecopyresampled($image_p, $img, 0, 0, 0, 0, $width, $height, imagesx($img), imagesy($img));
