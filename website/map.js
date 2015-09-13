@@ -47,7 +47,9 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: styles,
 		disableDefaultUI: true,
-		draggable: false
+		draggable: false,
+		scrollwheel: false,
+		disableDoubleClickZoom: true
     }
 
     map = new google.maps.Map(mapCanvas, mapOptions);
