@@ -63,7 +63,6 @@ function initialize() {
     }
 
     map = new google.maps.Map(mapCanvas, mapOptions);
-    map.fitBounds(bounds);
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
