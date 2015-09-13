@@ -22,6 +22,24 @@ use Yii;
  */
 class User extends \app\models\BaseAR implements \yii\web\IdentityInterface
 {
+    
+    /**
+     * @inheritdoc
+     */
+    public function fields()
+    {
+        return [
+            'id',
+            'username',
+            'first_name',
+            'last_name',
+            'email_address',
+            'thumbnail',
+            'created',
+        ];
+    }
+
+    
     /**
      * @inheritdoc
      */
@@ -40,7 +58,8 @@ class User extends \app\models\BaseAR implements \yii\web\IdentityInterface
             [['created', 'modified'], 'safe'],
             [['username', 'first_name', 'last_name'], 'string', 'max' => 200],
             [['email_address', 'access_token'], 'string', 'max' => 255],
-            [['email_address'], 'unique']
+            [['email_address'], 'unique'],
+            [['email_address'], 'email']
         ];
     }
 

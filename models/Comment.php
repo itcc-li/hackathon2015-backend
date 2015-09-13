@@ -23,6 +23,28 @@ class Comment extends \app\models\BaseAR
     /**
      * @inheritdoc
      */
+    public function fields()
+    {
+        return [
+            'id',
+            'user_id',
+            'poi_id',
+            'comment',
+            'rating',
+            'created',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function extraFields()
+    {
+        return ['user', 'poi'];
+    }
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return 'comment';

@@ -27,6 +27,35 @@ class Poi extends \app\models\BaseAR
     /**
      * @inheritdoc
      */
+    public function fields()
+    {
+        return [
+            'id',
+            'name',
+            'description',
+            'longitude',
+            'latitude',
+            'image',
+            'thumbnail',
+            'user_id',
+            'created',
+            'rating' => function ($model) {
+                return self::getRating($this->id);
+            },
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function extraFields()
+    {
+        return ['user'];
+    }
+    
+    /**
+     * @inheritdoc
+     */
     public static function tableName()
     {
         return 'poi';
@@ -81,8 +110,14 @@ class Poi extends \app\models\BaseAR
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
-
-
+    
+    protected static function getRating($poi_id)
+    {
+        $sql = "SELECT AVG(a.rating) as average_rating from comment a JOIN poi b on a.poi_id = b.id WHERE a.poi_id = $poi_id";
+        $command = \Yii::$app->db->createCommand($sql)->queryAll();
+        return is_null($command[0]['average_rating']) ? 0 : round($command[0]['average_rating'],1, PHP_ROUND_HALF_UP);
+    }
+    
     /**
      * Search Point of Interest by Distance (in kilometers)
      * @param float $long
@@ -128,4 +163,6 @@ class Poi extends \app\models\BaseAR
             return false;
         }
     }
+    
+    
 }
