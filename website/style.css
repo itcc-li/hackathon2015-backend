@@ -40,3 +40,11 @@ footer div { letter-spacing: 2px; }
 
 a[href^="http://maps.google.com/maps"] { display: none !important }
 a[href^="https://maps.google.com/maps"] { display: none !important }
+
+@media all and (max-width: 380px) {
+	#get-it-container { width: 250px; height: 100px; }
+	#get-it-container span { display: block;}
+	#footer-links div { margin-left: 20px; float: left; }
+	#apple-icon { float: right; margin-right: 24px; }
+	#android-icon { float: left; }
+}
