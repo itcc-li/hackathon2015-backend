@@ -71,6 +71,11 @@ function initialize() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+
+			window.setInterval(function() {
+				var currentCoordinates = map.getCenter();
+				map.panTo(new google.maps.LatLng((currentCoordinates.G - 0.00001), currentCoordinates.K));
+			}, 10);
         });
     }
 }
